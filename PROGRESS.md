@@ -95,3 +95,45 @@ A simplified summary of our journey building a decentralized social media app.
 - Instead of building a separate "server building," we built "vending machines" inside our website (Next.js Routes). Each route performs a specific task. We also added a "Map" (Swagger) so anyone can easily see and test what these vending machines do without looking at the complex code logic.
 - **Tools:** Next.js Route Handlers, Swagger JSDoc, Swagger UI.
 - **Result:** We now have a professional backend infrastructure that is documented and ready for blockchain data integration.
+
+---
+
+### Day 08: Database Schema & Relationships
+**What was completed:**
+- Designed Firestore schemas for `User`, `Post`, `Comment`, and `AnonSession`.
+- Created a `models/` folder in the project to store TypeScript interfaces.
+- Defined relationships (1-to-many) between Users, Posts, and Comments.
+- Linked Blockchain data (TX Hash) to our database models.
+
+**Baby Step Explanation:**
+- Think of a "Database Schema" as a set of rules for how our information is organized. For example, a `Post` must know who wrote it (`authorId`). We created "Digital Blueprints" (Interfaces) so our code knows exactly what a User or a Post should look like. This keeps our app from getting confused.
+- **Tools:** Firebase Firestore, TypeScript.
+- **Result:** Our data structure is ready! We can now start saving users, their posts, and comments to the cloud securely.
+
+
+<!-- erDiagram
+    USER ||--o{ POST : "creates"
+    USER ||--o{ COMMENT : "writes"
+    POST ||--o{ COMMENT : "contains"
+    ANONSESSION {
+        string tempId
+        timestamp expiresAt
+    }
+    USER {
+        string uid PK
+        string walletAddress
+        string username
+        timestamp createdAt
+    }
+    POST {
+        string id PK
+        string authorId FK
+        string blockchainHash
+        string content
+    }
+    COMMENT {
+        string id PK
+        string postId FK
+        string authorId FK
+        string content
+    } -->
