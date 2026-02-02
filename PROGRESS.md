@@ -83,3 +83,15 @@ A simplified summary of our journey building a decentralized social media app.
 - **Verified URL:** https://sepolia.etherscan.io/address/0x4E71f3059c982AEe820aB116ABb2b5c66E332b7d
 
 ---
+
+### Day 07: Native Backend with Next.js
+**What was completed:**
+- Set up a backend using **Next.js App Router** (skipping Express).
+- Created a Root API route (`/api`) and a Health Check route (`/api/health`).
+- Integrated **Swagger** for automatic API documentation.
+- Created an interactive API dashboard at `/api-docs`.
+
+**Baby Step Explanation:**
+- Instead of building a separate "server building," we built "vending machines" inside our website (Next.js Routes). Each route performs a specific task. We also added a "Map" (Swagger) so anyone can easily see and test what these vending machines do without looking at the complex code logic.
+- **Tools:** Next.js Route Handlers, Swagger JSDoc, Swagger UI.
+- **Result:** We now have a professional backend infrastructure that is documented and ready for blockchain data integration.
